@@ -3,8 +3,12 @@ from PIL import Image
 import numpy as np
 from tensorflow.keras.models import load_model
 
+@st.cache(allow_output_mutation=True)
+def load_my_model():
+    return load_model("imageclassifiers1s.h5")
 
-model = load_model("imageclassifiers1s.h5")
+model = load_my_model()
+
 st.markdown(
     """
     <style>
